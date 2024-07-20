@@ -1,0 +1,12 @@
+{
+    "block.voidz.item_group": "无垠虚空",
+    "block.voidz.void_portal": "虚空传送门",
+    "block.voidz.void_stone": "虚空石",
+    "block.voidz.infested_void_stone": "被虫蚀的虚空石",
+  
+    "death.attack.infested": "%1$s在虚空中停止了思考",
+  
+    "text.autoconfig.voidz.title": "无垠虚空配置",
+    "text.autoconfig.voidz.option.allow_boss_respawn": "允许Boss重生",
+    "text.autoconfig.voidz.option.boss_respawn_time": "Boss重生时间"
+  }
