@@ -22,7 +22,12 @@ import net.voidz.block.entity.*;
 public class BlockInit {
     // Block
     public static final Block PORTAL = register("void_portal",
-            new PortalBlock(FabricBlockSettings.create().mapColor(MapColor.BLACK).nonOpaque().luminance(15).strength(-1.0f, 3600000.0f).dropsNothing().pistonBehavior(PistonBehavior.BLOCK)));
+            new PortalBlock(FabricBlockSettings
+                    .copy(Blocks.END_PORTAL)
+                    .mapColor(MapColor.BLACK)
+                    .nonOpaque().luminance(x -> 15)
+                    .strength(-1.0f, 3600000.0f)
+                    .dropsNothing()));
     public static final Block VOID_STONE = register("void_stone", new VoidStoneBlock(FabricBlockSettings.copy(Blocks.END_STONE)));
     public static final Block INFESTED_VOID = register("infested_void_stone", new InfestedVoidStoneBlock(FabricBlockSettings.copy(Blocks.END_STONE)));
 
@@ -38,7 +43,9 @@ public class BlockInit {
 
     private static Block register(Identifier id, Block block) {
         Item item = Registry.register(Registries.ITEM, id, new BlockItem(block, new Item.Settings()));
-        ItemGroupEvents.modifyEntriesEvent(ItemInit.VOIDZ_ITEM_GROUP).register(entries -> entries.add(item));
+        ItemGroupEvents.modifyEntriesEvent(ItemInit.VOIDZ_ITEM_GROUP).register(content -> {
+            content.add(item);
+        });
 
         return Registry.register(Registries.BLOCK, id, block);
     }

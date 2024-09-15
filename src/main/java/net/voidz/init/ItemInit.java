@@ -12,10 +12,10 @@ import net.minecraft.util.Identifier;
 
 public class ItemInit {
     // Item Group
-    public static final RegistryKey<ItemGroup> VOIDZ_ITEM_GROUP = RegistryKey.of(RegistryKeys.ITEM_GROUP, new Identifier("voidz", "item_group"));
+    public static final ItemGroup VOIDZ_ITEM_GROUP = FabricItemGroup.builder(new Identifier("voidz", "item_group"))
+            .build();
 
     public static void init() {
-        Registry.register(Registries.ITEM_GROUP, VOIDZ_ITEM_GROUP,
-                FabricItemGroup.builder().icon(() -> new ItemStack(BlockInit.INFESTED_VOID)).displayName(Text.translatable("block.voidz.item_group")).build());
+
     }
 }
